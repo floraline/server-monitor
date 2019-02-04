@@ -1,7 +1,6 @@
 #!/bin/bash
 # record memory usage
-# keep 288 lines, at 5 minutes per line that's 24 hours
-tail -n 287 ./data/memory > ./temp/memory
-echo -e $(date +"%D_%H:%M") $(free | grep Mem | awk '{print $3/$2 * 100.0}') >> ./temp/memory
+tail -n 10079 ./data/memory > ./temp/memory
+echo -e $(date +"%D_%H:%M") $(free | grep Mem | awk '{print ($7/$2-1)*-100}') >> ./temp/memory
 mv -f ./temp/memory ./data/memory
 

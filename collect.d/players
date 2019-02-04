@@ -1,7 +1,6 @@
 #!/bin/bash
 # record memory usage
-# keep 288 lines, at 5 minutes per line that's 24 hours
-tail -n 287 ./data/players > ./temp/players
+tail -n 10079 ./data/players > ./temp/players
 echo -e $(date +"%D_%H:%M") $(find /home/crawl/DGL/dgldir/inprogress/ -name '*.ttyrec' | wc -l) >> ./temp/players
 mv -f ./temp/players ./data/players
 

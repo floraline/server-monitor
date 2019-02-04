@@ -1,11 +1,11 @@
 #!/bin/bash
 # record cpu load
 
-LOAD5=$(cat /proc/loadavg | awk '{print $2}')
+LOAD5=$(cat /proc/loadavg | cut -f1 -d' ')
 CPUNUM=$(grep -c ^processor /proc/cpuinfo)
 
-# keep 288 lines, at 5 minutes per line that's 24 hours
-tail -n 287 ./data/cpu-load > ./temp/cpu-load
+# keep 10,080 lines, at 1 minute per line that's 7 days
+tail -n 10079 ./data/cpu-load > ./temp/cpu-load
 echo -e $(date +"%D_%H:%M") $(echo "$LOAD5/$CPUNUM*100" | bc -l | xargs printf "%.2f") >> ./temp/cpu-load
 mv -f ./temp/cpu-load ./data/cpu-load
 

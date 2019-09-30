@@ -18,7 +18,7 @@ T_LATEST=$(cat ./data/$DATAFILE | \
   awk 'END{print $1}')
 T_EARLIEST=$(echo "$T_LATEST" | \
   sed s/_/' '/ | \
-  { read gmt ; date +"%D_%H:%M" -d "$gmt EST -$DAYS day" ; })
+  { read gmt ; date +"%D_%H:%M" -d "$gmt EDT -$DAYS day" ; })
 
 gnuplot -c plot/$PLOTFILE.plot $T_EARLIEST, $T_LATEST
 

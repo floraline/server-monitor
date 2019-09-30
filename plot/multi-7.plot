@@ -24,7 +24,7 @@ set rmargin screen 0.9
 set key on l t inside height -0.8 noreverse
 
 set ylabel "Percent Used" offset 1.5, 0 rotate
-set yrange [0:100<*]
+set yrange [0:100]
 set format y "%.0f%%"
 set ytics scale 0
 
@@ -42,6 +42,6 @@ set y2tics scale 0 #offset -6, 0
 
 unset grid
 
-plot "./data/players" using 1:2 axes x1y2 with fsteps linestyle 8 title "Players"
+plot "./data/players" using 1:2 axes x1y2 with lines linestyle 8 title "Players"
 
 unset multiplot

@@ -24,11 +24,11 @@ set rmargin screen 0.9
 set key on l t inside height -0.8 noreverse
 
 set ylabel "Percent Used" offset 1.5, 0 rotate
-set yrange [0:100<*]
+set yrange [0:100]
 set format y "%.0f%%"
 set ytics scale 0
 
-plot "./data/disk-space" using 1:2 with fillsteps linestyle 2 fillstyle solid fillcolor "#DD009292" title "Disk", \
+plot "./data/disk-space" using 1:2 with fillstep linestyle 2 fillstyle solid fillcolor "#DD009292" title "Disk", \
      "./data/cpu-load" using 1:2 with lines linestyle 1 title "CPU", \
      "./data/memory" using 1:2 with lines linestyle 3 title "Memory"
 
@@ -42,6 +42,6 @@ set y2tics scale 0 #offset -6, 0
 
 unset grid
 
-plot "./data/players" using 1:2 axes x1y2 with fsteps linestyle 4 title "Players"
+plot "./data/players" using 1:2 axes x1y2 with lines linestyle 4 title "Players"
 
 unset multiplot
